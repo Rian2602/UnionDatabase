@@ -1,0 +1,34 @@
+# ===== SPMKB .gitignore =====
+# Proyek ini INTERNAL-ONLY. DILARANG commit data pribadi pekerja.
+
+# --- JANGAN PERNAH commit: data sumber & data runtime (PII pekerja) ---
+*.xlsx
+*.docx
+/data.json
+/data.json.bak
+/data.json.tmp
+/data-src/
+# arsip (zip) dapat membawa data.json PII pekerja — jangan pernah commit
+*.zip
+# PII sumber roster (429 pekerja) — JANGAN PERNAH commit
+/data_keanggotaan.csv
+# artefak Windows ADS (Zone.Identifier) — metadata, bukan data proyek
+*:Zone.Identifier
+# lock skill agent (tooling, bukan kode proyek)
+skills-lock.json
+
+# --- runtime / environment ---
+node_modules/
+npm-debug.log*
+
+# --- editor / OS ---
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# --- tool config (agent-specific, not project code) ---
+.agents/
+.opencode/
+knowledge.md
+/docs/superpowers/

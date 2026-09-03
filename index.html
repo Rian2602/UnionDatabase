@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f7f2" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#041a14" media="(prefers-color-scheme: dark)">
+    <title>Serikat Pekerja Mandiri Kecap Bango (SPMKB) - Pusat Data Serikat Pekerja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+</head>
+<body class="spmkb-locked">
+    <!-- ═══ LOGIN GATE ═══ -->
+    <section id="spmkbLoginGate" aria-label="Gerbang masuk SPMKB">
+        <div class="spmkb-login-brand-panel">
+            <div class="spmkb-login-brand-top">
+                <div class="spmkb-login-mark" aria-hidden="true"><img src="assets/spmkb-logo-aktual.jpeg" alt="Logo SPMKB"></div>
+                <p class="spmkb-login-brand-name">SPMKB <span>/</span> CONTROL DESK</p>
+            </div>
+            <div class="spmkb-login-brand-copy">
+                <span class="spmkb-login-brand-kicker">Pusat data serikat pekerja</span>
+                <h1>Data yang tertata.<br><em>Keputusan yang tegas.</em></h1>
+                <p>Satu ruang kerja untuk keanggotaan, iuran, kegiatan, pengaduan, dokumen, dan perundingan upah.</p>
+                <div class="spmkb-login-rule" aria-hidden="true"></div>
+                <div class="spmkb-login-trust"><i class="fas fa-shield-alt"></i><span>Akses internal <b>•</b> Data anggota terlindungi</span></div>
+            </div>
+            <div class="spmkb-login-brand-foot"><span>PT. Anugrah Mutu Bersama</span><strong>SPMKB / 2026</strong></div>
+        </div>
+        <div class="spmkb-login-form-panel">
+            <div class="spmkb-login-status" aria-label="Status sistem: online"><span>SISTEM ONLINE</span></div>
+            <form class="spmkb-login-card" id="spmkbLoginForm" novalidate autocomplete="on">
+                <span class="spmkb-login-card-kicker">Secure access / 01</span>
+                <h2>Selamat datang kembali</h2>
+                <p>Masuk untuk mengakses pusat data serikat pekerja.</p>
+                <label class="spmkb-login-field"><span>Kata sandi akses</span><div class="spmkb-login-input-wrap"><i class="fas fa-lock"></i><input id="spmkbPassword" name="password" type="password" placeholder="Masukkan kata sandi" autocomplete="current-password" required maxlength="256" aria-describedby="spmkbLoginMessage"><button type="button" class="spmkb-login-eye" id="spmkbTogglePassword" aria-label="Tampilkan kata sandi" aria-pressed="false"><i class="fas fa-eye"></i></button></div></label>
+                <div class="spmkb-login-row"><a href="#" class="spmkb-login-link" id="spmkbForgot">Lupa kata sandi?</a></div>
+                <button type="submit" class="spmkb-login-submit" id="spmkbSubmit"><i class="fas fa-sign-in-alt"></i><span>Masuk ke Control Desk</span></button>
+                <p class="spmkb-login-message" id="spmkbLoginMessage" role="alert" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+    <!-- Skip to content (WCAG 2.4.1) -->
+    <a href="#mainContent" class="skip-link">Langsung ke konten utama</a>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img class="brand-logo" src="assets/spmkb-logo-aktual.jpeg" alt="Logo Serikat Pekerja Mandiri Kecap Bango (SPMKB)">
+                <div>
+                    <span class="logo-title">Serikat Pekerja Mandiri Kecap Bango (SPMKB)</span>
+                    <span class="logo-subtitle">PUSAT DATA SERIKAT PEKERJA</span>
+                </div>
+            </div>
+            <button class="close-btn" id="closeSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" aria-current="page"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-item" data-page="members"><i class="fas fa-users"></i><span>Data Keanggotaan</span></a>
+            <a href="#" class="nav-item" data-page="dues"><i class="fas fa-wallet"></i><span>Iuran & Keuangan</span></a>
+            <a href="#" class="nav-item" data-page="cards"><i class="fas fa-id-card"></i><span>Kartu Anggota</span></a>
+            <a href="#" class="nav-item" data-page="attendance"><i class="fas fa-clipboard-check"></i><span>Absensi Kegiatan</span></a>
+            <a href="#" class="nav-item" data-page="calendar"><i class="fas fa-calendar-alt"></i><span>Kalender Kegiatan</span></a>
+            <a href="#" class="nav-item" data-page="wages"><i class="fas fa-money-bill-wave"></i><span>Perundingan Upah</span></a>
+            <a href="#" class="nav-item" data-page="letters"><i class="fas fa-envelope-open-text"></i><span>Surat & Dokumen</span></a>
+            <a href="#" class="nav-item" data-page="complaints"><i class="fas fa-exclamation-triangle"></i><span>Pengaduan & Aspirasi</span></a>
+            <a href="#" class="nav-item" data-page="reports"><i class="fas fa-chart-bar"></i><span>Laporan & Statistik</span></a>
+            <a href="#" class="nav-item" data-page="pesangon"><i class="fas fa-hand-holding-usd"></i><span>Simulasi Pesangon</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="footer-rule"></div>
+            <p>PT. Anugrah Mutu Bersama</p>
+            <p>Serikat Pekerja Mandiri Kecap Bango</p>
+            <span class="footer-code">SPMKB / 2026</span>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent" role="main">
+        <header class="topbar">
+            <button class="menu-btn" id="menuBtn" aria-label="Buka navigasi"><i class="fas fa-bars"></i></button>
+            <div class="topbar-title">
+                <div class="topbar-kicker">SPMKB / CONTROL DESK</div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Ringkasan data serikat pekerja</p>
+            </div>
+            <div class="topbar-actions">
+                <div class="system-status"><span class="status-dot"></span><span>LOCAL DATA</span></div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="globalSearch" placeholder="Cari anggota atau NIK..." aria-label="Pencarian global" autocomplete="off" maxlength="200">
+                </div>
+                <button class="icon-btn" onclick="App.showNotifications()" aria-label="Buka pengaduan dan notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-badge" id="notifBadge">0</span>
+                </button>
+                <button class="icon-btn" onclick="App.toggleDarkMode()" aria-label="Toggle dark mode" title="Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- ===== DASHBOARD ===== -->
+        <div class="page active" id="dashboard">
+            <div class="page-header">
+                <div>
+                    <span class="page-kicker">01 — OVERVIEW</span>
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <p>Ringkasan seluruh aktivitas serikat pekerja</p>
+                </div>
+                <div class="page-stamp"><span>EDISI</span><strong id="pageStampEdition">&mdash; / &mdash;</strong></div>
+            </div>
+            <section class="dashboard-masthead">
+                <div class="masthead-copy">
+                    <span class="eyebrow">PUSAT DATA SERIKAT PEKERJA</span>
+                    <h3>Data yang tertata.<br><em>Keputusan yang tegas.</em></h3>
+                    <p>Satu ruang kerja untuk keanggotaan, iuran, kegiatan, pengaduan, dokumen, dan perundingan upah.</p>
+                </div>
+                <div class="masthead-actions">
+                    <button class="quick-action" onclick="App.showAddMember()"><span>01</span><strong>Tambah Anggota</strong><i class="fas fa-arrow-right"></i></button>
+                    <button class="quick-action" onclick="App.showAddDues()"><span>02</span><strong>Input Iuran</strong><i class="fas fa-arrow-right"></i></button>
+                    <button class="quick-action" onclick="App.showAddEvent()"><span>03</span><strong>Tambah Kegiatan</strong><i class="fas fa-arrow-right"></i></button>
+                    <button class="quick-action" onclick="App.showAddComplaint()"><span>04</span><strong>Ajukan Aspirasi</strong><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </section>
+            <div class="stats-grid">
+                <div class="stat-card stat-clickable" onclick="App.showPage('members')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();App.showPage('members');}"><div class="stat-icon bg-blue"><i class="fas fa-users"></i></div><div class="stat-info"><h3 id="statMembers">0</h3><p>Total Anggota</p></div></div>
+                <div class="stat-card stat-clickable" onclick="App.showPage('members')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();App.showPage('members');}"><div class="stat-icon bg-green"><i class="fas fa-user-friends"></i></div><div class="stat-info"><h3 id="statActive">0</h3><p>Youth Member</p></div></div>
+                <div class="stat-card stat-clickable" onclick="App.showPage('dues')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();App.showPage('dues');}"><div class="stat-icon bg-orange"><i class="fas fa-wallet"></i></div><div class="stat-info"><h3 id="statDues">Rp 0</h3><p>Iuran Bulan Ini (Proyeksi)</p></div></div>
+                <div class="stat-card stat-clickable" onclick="App.showPage('calendar')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){event.preventDefault();App.showPage('calendar');}"><div class="stat-icon bg-purple"><i class="fas fa-calendar-check"></i></div><div class="stat-info"><h3 id="statEvents">0</h3><p>Kegiatan Bulan Ini</p></div></div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card chart-card"><div class="card-header"><h3><i class="fas fa-chart-pie"></i> Anggota berdasarkan Gender</h3></div><div class="card-body"><div class="html-chart-container" id="chartMemberStatus"></div></div></div>
+                <div class="card chart-card"><div class="card-header"><h3><i class="fas fa-chart-bar"></i> Karyawan per Departemen</h3></div><div class="card-body"><div class="html-chart-container" id="chartDept"></div></div></div>
+                <div class="card"><div class="card-header"><h3><i class="fas fa-clock"></i> Kegiatan Mendatang</h3></div><div class="card-body"><div id="upcomingEvents"></div></div></div>
+                <div class="card"><div class="card-header"><h3><i class="fas fa-exclamation-circle"></i> Pengaduan Terbaru</h3></div><div class="card-body"><div id="recentComplaints"></div></div></div>
+            </div>
+        </div>
+
+        <!-- ===== DATA KEANGGOTAAN ===== -->
+        <div class="page" id="members">
+            <div class="page-header"><div><span class="page-kicker">02 — MEMBERS</span><h2><i class="fas fa-users"></i> Data Keanggotaan</h2><p>Kelola data seluruh anggota serikat pekerja</p></div></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Departemen:</label><select id="memDeptFilter"><option value="">Semua</option></select></div>
+                    <div class="filter-group"><label>Job Class:</label><select id="memJCFilter"><option value="">Semua</option></select></div>
+                    <div class="filter-group"><label>Gender:</label><select id="memGenderFilter"><option value="">Semua</option><option value="Laki-Laki">Laki-Laki</option><option value="Perempuan">Perempuan</option></select></div>
+                    <div class="filter-group"><label>Youth:</label><select id="memYouthFilter"><option value="">Semua</option><option value="youth">Youth</option><option value="non">Non-Youth</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddMember()"><i class="fas fa-plus"></i> Tambah</button>
+                    <button class="btn btn-success" onclick="App.exportMembersCSV()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="membersTable">
+                        <thead><tr>
+                            <th data-sort="no">No <i class="fas fa-sort"></i></th>
+                            <th data-sort="nama">Nama <i class="fas fa-sort"></i></th>
+                            <th data-sort="nik">NIK <i class="fas fa-sort"></i></th>
+                            <th data-sort="department">Departemen <i class="fas fa-sort"></i></th>
+                            <th data-sort="jabatan">Jabatan <i class="fas fa-sort"></i></th>
+                            <th data-sort="jobclass">Job Class <i class="fas fa-sort"></i></th>
+                            <th>Aksi</th>
+                        </tr></thead>
+                        <tbody id="membersBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="membersPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== IURAN & KEUANGAN ===== -->
+        <div class="page" id="dues">
+            <div class="page-header"><div><span class="page-kicker">03 — FINANCE</span><h2><i class="fas fa-wallet"></i> Iuran & Keuangan</h2><p>Kelola iuran bulanan dan keuangan serikat</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon bg-green"><i class="fas fa-arrow-down"></i></div><div class="stat-info"><h3 id="duesTotal">Rp 0</h3><p>Total Terkumpul</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-orange"><i class="fas fa-arrow-up"></i></div><div class="stat-info"><h3 id="duesUnpaid">Rp 0</h3><p>Tunggakan</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-blue"><i class="fas fa-percentage"></i></div><div class="stat-info"><h3 id="duesRate">0%</h3><p>Tingkat Pembayaran</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-purple"><i class="fas fa-money-check-alt"></i></div><div class="stat-info"><h3 id="duesThisMonth">Rp 0</h3><p>Iuran Bulan Ini</p></div></div>
+            </div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Bulan:</label><select id="duesMonth"></select></div>
+                    <div class="filter-group"><label>Tahun:</label><select id="duesYear"></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddDues()"><i class="fas fa-plus"></i> Input Iuran</button>
+                    <button class="btn btn-success" onclick="App.exportDuesCSV()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="duesTable">
+                        <thead><tr>
+                            <th>Nama</th><th>NIK</th><th>Departemen</th>
+                            <th>Bulan</th><th>Jumlah</th><th>Tanggal Bayar</th><th>Status</th><th>Aksi</th>
+                        </tr></thead>
+                        <tbody id="duesBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="duesPagination"></div>
+            </div></div>
+
+            <div class="page-header" style="margin-top:24px"><div><h2><i class="fas fa-book"></i> Buku Kas Keuangan</h2><p>Pencatatan pemasukan & pengeluaran kas serikat</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon bg-green"><i class="fas fa-wallet"></i></div><div class="stat-info"><h3 id="bukuKasSaldo">Rp 0</h3><p>Saldo Berjalan</p></div></div>
+            </div>
+            <div class="toolbar">
+                <div class="toolbar-left"></div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.addBukuKas()"><i class="fas fa-plus"></i> Tambah Transaksi</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead><tr>
+                            <th>Tanggal</th><th>Uraian</th><th>Kategori</th><th>Pemasukan (Debit)</th><th>Pengeluaran (Kredit)</th><th>Saldo</th><th>Aksi</th>
+                        </tr></thead>
+                        <tbody id="bukuKasBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="bukuKasPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== KARTU ANGGOTA ===== -->
+        <div class="page" id="cards">
+            <div class="page-header"><div><span class="page-kicker">04 — IDENTITY</span><h2><i class="fas fa-id-card"></i> Kartu Anggota Digital</h2><p>Generate dan cetak kartu anggota</p></div></div>
+            <div class="toolbar card-tools">
+                <div class="toolbar-left">
+                    <div class="filter-group card-search-group">
+                        <label for="cardSearch">Cari Anggota</label>
+                        <div class="card-search-wrap">
+                            <input type="search" id="cardSearch" placeholder="Nama, NIK, atau nomor anggota..." maxlength="200" autocomplete="off"
+                                   oninput="App._onCardSearchInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();App.generateCard();}">
+                            <div id="cardSearchResults" class="card-search-results" hidden></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="App.generateCard()" type="button"><i class="fas fa-id-badge"></i> Generate Kartu</button>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.downloadCardPDF()" type="button"><i class="fas fa-file-pdf"></i> Unduh PDF</button>
+                    <button class="btn btn-success" onclick="App.printCard()" type="button"><i class="fas fa-print"></i> Cetak</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div id="cardPreview" class="card-preview-area">
+                    <div class="empty-state"><i class="fas fa-id-card"></i><h3>Pilih anggota untuk generate kartu</h3><p>Ketik nama atau NIK di atas, lalu klik Generate</p></div>
+                </div>
+            </div></div>
+            <div class="card" style="margin-top:14px"><div class="card-body">
+                <div id="cardMemberList"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== ABSENSI KEHADIRAN ===== -->
+        <div class="page" id="attendance">
+            <div class="page-header"><div><span class="page-kicker">05 — ATTENDANCE</span><h2><i class="fas fa-clipboard-check"></i> Absensi & Kehadiran</h2><p>Tracking kehadiran anggota dalam kegiatan serikat</p></div></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Kegiatan:</label><select id="attEventFilter"><option value="">Semua Kegiatan</option></select></div>
+                    <div class="filter-group"><label>Status:</label><select id="attStatusFilter"><option value="">Semua</option><option value="Hadir">Hadir</option><option value="Izin">Izin</option><option value="Alpha">Alpha</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddAttendance()"><i class="fas fa-plus"></i> Input Absensi</button>
+                    <button class="btn btn-success" onclick="App.exportAttendanceCSV()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="attTable">
+                        <thead><tr><th>No</th><th>Nama</th><th>Kegiatan</th><th>Tanggal</th><th>Status</th><th>Keterangan</th><th>Aksi</th></tr></thead>
+                        <tbody id="attBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="attPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== KALENDER KEGIATAN ===== -->
+        <div class="page" id="calendar">
+            <div class="page-header"><h2><i class="fas fa-calendar-alt"></i> Kalender Kegiatan</h2><p>Jadwal rapat, perundingan, aksi, dan acara serikat</p></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-sm" onclick="App.calPrevMonth()"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="calMonthYear" style="min-width:200px;text-align:center;"></h3>
+                    <button class="btn btn-sm" onclick="App.calNextMonth()"><i class="fas fa-chevron-right"></i></button>
+                    <button class="btn btn-sm btn-secondary" onclick="App.calToday()">Hari Ini</button>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddEvent()"><i class="fas fa-plus"></i> Tambah Kegiatan</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== PERUNDINGAN UPAH ===== -->
+        <div class="page" id="wages">
+            <div class="page-header"><div><span class="page-kicker">07 — BARGAINING</span><h2><i class="fas fa-money-bill-wave"></i> Perundingan Pengupahan 2026</h2><p>Analisis data perundingan gaji antar skenario pertemuan</p></div></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Skenario:</label><select id="wageScenario"><option value="Pertemuan1">Pertemuan 1</option><option value="Pertemuan2">Pertemuan 2</option><option value="Pertemuan3">Pertemuan 3</option><option value="Pertemuan4">Pertemuan 4</option><option value="Pertemuan5">Pertemuan 5</option></select></div>
+                    <div class="filter-group"><label>Departemen:</label><select id="wageDept"><option value="">Semua</option></select></div>
+                    <div class="filter-group"><label>Job Class:</label><select id="wageJC"><option value="">Semua</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-info" onclick="App.showWageComparison()"><i class="fas fa-balance-scale"></i> Perbandingan</button>
+                    <button class="btn btn-success" onclick="App.exportWageCSV()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            <div class="stats-grid" id="wageStats"></div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="wagesTable">
+                        <thead><tr>
+                            <th>No</th><th>Nama</th><th>NIK</th><th>Dept</th><th>Jabatan</th><th>JC</th>
+                            <th>GP 2025</th><th>Xtot</th><th>Ytot</th><th>Ztot</th><th>GP 2026</th><th>Kenaikan</th><th>Aksi</th>
+                        </tr></thead>
+                        <tbody id="wagesBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="wagesPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== SURAT & DOKUMEN ===== -->
+        <div class="page" id="letters">
+            <div class="page-header"><div><span class="page-kicker">08 — DOCUMENTS</span><h2><i class="fas fa-envelope-open-text"></i> Surat & Dokumen</h2><p>Manajemen surat masuk/keluar dan dokumen serikat</p></div></div>
+            <div class="stats-grid" id="letterStats"></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Tipe:</label><select id="letterType"><option value="">Semua</option><option value="Masuk">Surat Masuk</option><option value="Keluar">Surat Keluar</option><option value="Notulis">Notulis Rapat</option><option value="Perjanjian">Perjanjian Kerja</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddLetter()"><i class="fas fa-plus"></i> Tambah Surat</button>
+                    <button class="btn btn-success" onclick="App.exportLetterCSV()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="lettersTable">
+                        <thead><tr><th>No</th><th>Tanggal</th><th>No. Surat</th><th>Tipe</th><th>Perihal</th><th>Dari/Untuk</th><th>Status</th><th>Aksi</th></tr></thead>
+                        <tbody id="lettersBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="lettersPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== PENGADUAN & ASPIRASI ===== -->
+        <div class="page" id="complaints">
+            <div class="page-header"><div><span class="page-kicker">09 — CASEWORK</span><h2><i class="fas fa-exclamation-triangle"></i> Pengaduan & Aspirasi</h2><p>Sistem pengaduan dan aspirasi anggota</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon bg-orange"><i class="fas fa-bell"></i></div><div class="stat-info"><h3 id="compTotal">0</h3><p>Total Pengaduan</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-blue"><i class="fas fa-spinner"></i></div><div class="stat-info"><h3 id="compProgress">0</h3><p>Proses</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-green"><i class="fas fa-check"></i></div><div class="stat-info"><h3 id="compResolved">0</h3><p>Selesai</p></div></div>
+                <div class="stat-card"><div class="stat-icon bg-purple"><i class="fas fa-lightbulb"></i></div><div class="stat-info"><h3 id="compSuggestion">0</h3><p>Aspirasi</p></div></div>
+            </div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Kategori:</label><select id="compCategory"><option value="">Semua</option><option value="Pengaduan">Pengaduan</option><option value="Aspirasi">Aspirasi</option><option value="Saran">Saran</option><option value="Kritik">Kritik</option></select></div>
+                    <div class="filter-group"><label>Status:</label><select id="compStatus"><option value="">Semua</option><option value="Baru">Baru</option><option value="Proses">Proses</option><option value="Selesai">Selesai</option><option value="Ditolak">Ditolak</option></select></div>
+                    <div class="filter-group"><label>Prioritas:</label><select id="compPriority"><option value="">Semua</option><option value="Tinggi">Tinggi</option><option value="Sedang">Sedang</option><option value="Rendah">Rendah</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.showAddComplaint()"><i class="fas fa-plus"></i> Ajukan</button>
+                </div>
+            </div>
+            <div class="card"><div class="card-body">
+                <div class="table-responsive">
+                    <table class="data-table" id="complaintsTable">
+                        <thead><tr><th>No</th><th>Tanggal</th><th>Pelapor</th><th>Kategori</th><th>Judul</th><th>Prioritas</th><th>Status</th><th>Aksi</th></tr></thead>
+                        <tbody id="complaintsBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="complaintsPagination"></div>
+            </div></div>
+        </div>
+
+        <!-- ===== LAPORAN & STATISTIK ===== -->
+        <div class="page" id="reports">
+            <div class="page-header"><div><span class="page-kicker">10 — REPORTS</span><h2><i class="fas fa-chart-bar"></i> Laporan & Statistik</h2><p>Analisis mendalam data serikat pekerja</p></div></div>
+            <div id="reportPrintHeader"></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group"><label>Modul:</label><select id="reportModule" onchange="App.updateReportCharts()"><option value="members">Keanggotaan</option><option value="dues">Iuran</option><option value="attendance">Kehadiran</option><option value="complaints">Pengaduan</option><option value="wages">Perundingan Upah</option></select></div>
+                    <div class="filter-group"><label>Dari:</label><input type="month" id="reportFrom" onchange="App.updateReportCharts()"></div>
+                    <div class="filter-group"><label>Sampai:</label><input type="month" id="reportTo" onchange="App.updateReportCharts()"></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" onclick="App.generateReport()"><i class="fas fa-sync"></i> Generate</button>
+                    <button class="btn btn-success" onclick="App.exportReportPDF()"><i class="fas fa-file-pdf"></i> Export PDF</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="card chart-card"><div class="card-header"><h3><i class="fas fa-chart-pie"></i> Distribusi Data</h3></div><div class="card-body"><div class="html-chart-container" id="reportChart1"></div></div></div>
+                <div class="card chart-card"><div class="card-header"><h3><i class="fas fa-chart-bar"></i> Tren Data</h3></div><div class="card-body"><div class="html-chart-container" id="reportChart2"></div></div></div>
+                <div class="card full-width"><div class="card-header"><h3><i class="fas fa-table"></i> Ringkasan Laporan</h3></div><div class="card-body"><div id="reportSummary"></div></div></div>
+            </div>
+        </div>
+        <div class="page" id="pesangon">
+            <div class="page-header"><div><span class="page-kicker">11 — SEVERANCE</span><h2><i class="fas fa-hand-holding-usd"></i> Simulasi Hak Pesangon</h2><p>Perhitungan Uang Pesangon, UPMK, UPH, dan Uang Pisah berdasarkan Perjanjian Kerja Bersama (PKB)</p></div></div>
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <div class="filter-group" style="position:relative"><label>Anggota:</label><input type="text" id="pesangonSearchInput" placeholder="Cari nama/NIK/dept..." oninput="App.onPesangonSearch(this.value)" autocomplete="off" style="width:280px"><div id="pesangonSearchList" class="pesangon-search-list" style="display:none"></div><input type="hidden" id="pesangonNik"></div>
+                    <div class="filter-group"><label>Skenario 1:</label><select id="pesangonScenario" onchange="App.renderPesangon()"><option value="0">— Pilih Skenario —</option></select></div>
+                    <div class="filter-group"><label>Skenario 2:</label><select id="pesangonScenario2" onchange="App.renderPesangon()"><option value="0">— Bandingkan (opsional) —</option></select></div>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-success" onclick="App.exportPesangonCSV()" id="pesangonExportBtn" style="display:none"><i class="fas fa-file-csv"></i> Export CSV</button>
+                </div>
+            </div>
+            <div id="pesangonResult"></div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="mainModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content modal-lg">
+            <div class="modal-header"><h3 id="modalTitle"></h3><button class="close-btn" onclick="App.closeModal()" aria-label="Tutup"><i class="fas fa-times"></i></button></div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"><button class="btn btn-secondary" onclick="App.closeModal()">Tutup</button></div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"></script>
+    <script src="js/wage-data.js?v=3"></script>
+    <script src="js/core.js?v=3"></script>
+    <script src="js/members.js?v=3"></script>
+    <script src="js/dues.js?v=3"></script>
+    <script src="js/cards.js?v=3"></script>
+    <script src="js/attendance.js?v=3"></script>
+    <script src="js/calendar.js?v=3"></script>
+    <script src="js/wages.js?v=3"></script>
+    <script src="js/letters.js?v=3"></script>
+    <script src="js/complaints.js?v=3"></script>
+    <script src="js/sanksi.js?v=3"></script>
+    <script src="js/bukuKas.js?v=3"></script>
+    <script src="js/dashboard.js?v=3"></script>
+    <script src="js/reports.js?v=3"></script>
+    <script src="js/pesangon.js?v=3"></script>
+    <script src="js/app.js?v=3"></script>
+
+    <script id="spmkb-login-script">
+    (() => {
+        'use strict';
+        const MAX_ATTEMPTS = 5;
+        const LOCKOUT_MS = 30000; // 30 seconds
+        const ATTEMPT_KEY = 'spmkb-attempts';
+        const LOCKOUT_KEY = 'spmkb-lockout';
+
+        const gate = document.getElementById('spmkbLoginGate');
+        const form = document.getElementById('spmkbLoginForm');
+        const password = document.getElementById('spmkbPassword');
+        const message = document.getElementById('spmkbLoginMessage');
+        const submit = document.getElementById('spmkbSubmit');
+        const toggle = document.getElementById('spmkbTogglePassword');
+        const forgot = document.getElementById('spmkbForgot');
+        const card = form;
+
+        if (!gate || !form) return;
+
+        // Rate limiting: track attempts
+        function getAttempts() { return parseInt(sessionStorage.getItem(ATTEMPT_KEY) || '0', 10); }
+        function incrementAttempts() { sessionStorage.setItem(ATTEMPT_KEY, String(getAttempts() + 1)); }
+        function resetAttempts() { sessionStorage.removeItem(ATTEMPT_KEY); sessionStorage.removeItem(LOCKOUT_KEY); }
+        function isLockedOut() {
+            const lockoutUntil = parseInt(sessionStorage.getItem(LOCKOUT_KEY) || '0', 10);
+            if (lockoutUntil && Date.now() < lockoutUntil) return true;
+            if (lockoutUntil && Date.now() >= lockoutUntil) { resetAttempts(); return false; }
+            return false;
+        }
+        function setLockout() { sessionStorage.setItem(LOCKOUT_KEY, String(Date.now() + LOCKOUT_MS)); }
+
+        // Pointer-reactive ambient light (throttled)
+        if (window.matchMedia('(pointer:fine)').matches) {
+            let rafId = null;
+            gate.addEventListener('pointermove', (event) => {
+                if (rafId) return;
+                rafId = requestAnimationFrame(() => {
+                    rafId = null;
+                    const rect = gate.getBoundingClientRect();
+                    gate.style.setProperty('--lx', ((event.clientX - rect.left) / rect.width * 100) + '%');
+                    gate.style.setProperty('--ly', ((event.clientY - rect.top) / rect.height * 100) + '%');
+                });
+            }, { passive: true });
+        }
+
+        function runViewTransition(update) {
+            if (typeof document.startViewTransition === 'function') return document.startViewTransition(update);
+            update();
+        }
+
+        function setMessage(text, success) {
+            if (!message) return;
+            message.textContent = text || '';
+            message.classList.toggle('success', !!success);
+        }
+
+        function addLogoutButton() {
+            const actions = document.querySelector('.topbar-actions') || document.querySelector('.topbar');
+            if (!actions || document.getElementById('spmkbLogout')) return;
+            const btn = document.createElement('button');
+            btn.id = 'spmkbLogout';
+            btn.type = 'button';
+            btn.className = 'spmkb-logout-btn';
+            btn.setAttribute('aria-label', 'Keluar dari sesi');
+            btn.textContent = '\u{1F6AA} Keluar';
+            btn.addEventListener('click', () => {
+                resetAttempts();
+                window.location.reload();
+            });
+            actions.appendChild(btn);
+        }
+
+        function unlock(authToken) {
+            resetAttempts();
+            runViewTransition(() => {
+                document.body.classList.remove('spmkb-locked');
+                gate.classList.add('is-hidden');
+                addLogoutButton();
+            });
+            startApp(authToken);
+            const firstNav = document.querySelector('.nav-item');
+            if (firstNav) firstNav.focus({ preventScroll: true });
+        }
+
+        async function validateAndUnlock() {
+            if (isLockedOut()) {
+                const remaining = Math.ceil((parseInt(sessionStorage.getItem(LOCKOUT_KEY) || '0') - Date.now()) / 1000);
+                setMessage('Terlalu banyak percobaan. Coba lagi dalam ' + remaining + ' detik.');
+                return;
+            }
+            const enteredPassword = password.value || '';
+            password.setAttribute('aria-invalid', 'false');
+            card.classList.remove('is-shaking');
+            if (!enteredPassword) {
+                password.setAttribute('aria-invalid', 'true');
+                setMessage('Isi kata sandi akses terlebih dahulu.');
+                card.classList.add('is-shaking');
+                password.focus();
+                return;
+            }
+            const verified = await fetch('data.json', { headers: { Authorization: 'Bearer ' + enteredPassword } }).then(r => r.ok).catch(() => false);
+            if (!verified) {
+                incrementAttempts();
+                const attempts = getAttempts();
+                if (attempts >= MAX_ATTEMPTS) {
+                    setLockout();
+                    setMessage('Terlalu banyak percobaan gagal. Akun dikunci 30 detik.');
+                } else {
+                    setMessage('Kredensial tidak sesuai. (' + attempts + '/' + MAX_ATTEMPTS + ' percobaan)');
+                }
+                password.setAttribute('aria-invalid', 'true');
+                card.classList.add('is-shaking');
+                password.focus();
+                return;
+            }
+            submit.disabled = true;
+            submit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Membuka Control Desk\u2026';
+            setMessage('Akses diverifikasi. Membuka ruang kerja\u2026', true);
+            window.setTimeout(() => unlock(enteredPassword), 480);
+        }
+
+        form.addEventListener('submit', (e) => { e.preventDefault(); validateAndUnlock(); });
+        if (toggle) toggle.addEventListener('click', () => {
+            const visible = password.type === 'text';
+            password.type = visible ? 'password' : 'text';
+            toggle.setAttribute('aria-pressed', String(!visible));
+            toggle.setAttribute('aria-label', visible ? 'Tampilkan kata sandi' : 'Sembunyikan kata sandi');
+            toggle.querySelector('i').className = visible ? 'fas fa-eye' : 'fas fa-eye-slash';
+        });
+        if (forgot) forgot.addEventListener('click', (e) => {
+            e.preventDefault();
+            setMessage('Hubungi administrator SPMKB untuk reset kata sandi.');
+        });
+        window.setTimeout(() => password.focus(), 60);
+    })();
+    </script>
+</body>
+</html>
